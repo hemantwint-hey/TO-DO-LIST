@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'package:todolist/screens/tasks_screen.dart';
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 class MyApp extends StatelessWidget{
-
-  Widget build (BuilderContext)
+  @override
+  Widget build (BuilderContext){
+    return MaterialApp(
+      home: TasksScreen(),
+    );
+  }
 }
