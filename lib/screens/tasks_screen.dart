@@ -9,6 +9,7 @@ class TasksScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.only(top:60.0,left: 30.0,right: 30.0,bottom: 30.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
               CircleAvatar(
                   child: Icon(
