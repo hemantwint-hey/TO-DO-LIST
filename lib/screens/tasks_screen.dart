@@ -63,7 +63,7 @@ class TasksScreen extends StatelessWidget {
                     trailing: Checkbox(value: false,  onChanged: (bool? value) {}, ),
                   ),
                   ListTile(
-                    title: Text('This is a '),
+                    title: Text('This is a trick'),
                     trailing: Checkbox(value: false,  onChanged: (bool? value) {}, ),
                   ),
                   ListTile(
