@@ -16,7 +16,7 @@ class TasksList extends StatelessWidget {
       ),
       child: ListView(
         children: const [
-          TaskTile(title: 'This is a task'),
+          TaskTile(title: 'This is a tsk'),
           TaskTile(title: 'This is a trick'),
           TaskTile(title: 'This is another task'),
         ],
