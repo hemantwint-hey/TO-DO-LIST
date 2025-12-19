@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todolist/models/task_data.dart';
 import 'package:todolist/screens/tasks_screen.dart';
-void main() {
-  runApp( MyApp());
-}
-class MyApp extends StatelessWidget{
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  Widget build (BuilderContext){
-    return MaterialApp(
-      home: TasksScreen(),
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => TaskData(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: TasksScreen(),
+      ),
     );
   }
 }

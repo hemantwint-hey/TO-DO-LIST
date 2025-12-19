@@ -1,48 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todolist/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = "";
+
     return Container(
-      padding: const EdgeInsets.all(20), // overall screen padding
+      padding: const EdgeInsets.all(20),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+        children: [
           const Text(
             'Add Task',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.lightBlueAccent,
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 30, color: Colors.purpleAccent),
           ),
-
-          const SizedBox(height: 20),
-
-          const TextField(
+          TextField(
             autofocus: true,
             textAlign: TextAlign.center,
+            onChanged: (newText) {
+              newTaskTitle = newText;
+            },
           ),
-
-          const SizedBox(height: 30),
-
-          // ✅ OUTSIDE padding for TextButton
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: TextButton(
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                fixedSize: const Size(150, 50),
-                backgroundColor: Colors.lightBlueAccent,
-                foregroundColor: Colors.white,
-              ),
-              child: const Text(
-                'ADD',
-                style: TextStyle(fontSize: 18),
-              ),
+          const SizedBox(height: 20),
+          TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.purpleAccent,
+              foregroundColor: Colors.white,
             ),
+            onPressed: () {
+              if (newTaskTitle.isNotEmpty) {
+                Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
+                Navigator.pop(context);
+              }
+            },
+            child: const Text('Add'),
           ),
         ],
       ),
